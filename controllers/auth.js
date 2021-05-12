@@ -59,7 +59,7 @@ exports.login = async (req,res)=>{
  exports.register = (req, res) =>{
     console.log(req.body);
 
-    const { name, user,hospital,turn,role,password,passwordConfirm } = req.body;
+    const { name, user,email,biography,phone,password,passwordConfirm,isPublic } = req.body;
 
     db.query('SELECT user from users WHERE user = ?', [user], async (error,results) =>{
         if (error){
@@ -78,7 +78,7 @@ exports.login = async (req,res)=>{
         let hashedPassword = await bcrypt.hash(password, 8);
         console.log(hashedPassword);
 
-        db.query('INSERT INTO users SET ?', {name:name,user: user,hospital:hospital, turn:turn,role:role,password: hashedPassword }, (error, results)=>{
+        db.query('INSERT INTO users SET ?', {name:name,user: user,email:email,biography:biography,phone:phone,password: hashedPassword,isPublic:isPublic }, (error, results)=>{
             if(error){
                 console.log(error);
                 
