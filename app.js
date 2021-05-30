@@ -37,7 +37,7 @@ db.connect( (error) => {
 
 //Define routes
 app.use('/',require('./routes/pages'))
-app.use('/auth',require('./routes/auth'));
+app.use('/loginController',require('./routes/loginRoutes'));
 
 app.listen(process.env.APP_PORT,() =>{
     console.log("Server running");
