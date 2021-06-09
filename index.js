@@ -24,8 +24,8 @@ app.set("view engine", "hbs");
 app.use("/", require("./routes/pages"));
 app.use("/api", require("./routes/api"));
 
-app.listen(process.env.APP_PORT, () => {
-  console.log(`Server running in port ${process.env.APP_PORT}`);
+app.listen(5000, () => {
+  console.log(`Server running in port 5000`);
 });
 
 process.stdin.resume(); //so the program will not close instantly
