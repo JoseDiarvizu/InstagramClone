@@ -55,11 +55,17 @@ router.put("/user", (req, res) => {
 router.delete("/user", (req, res) => {
   userController.deleteUser(req, res);
 });
+router.post("/showuser", (req, res) => {
+  userController.showUsers(req, res);
+});
+router.post("/userclicked", (req, res) => {
+  userController.userClicked(req, res);
+});
 //////////////////////////////////////////
 router.post("/follow", (req, res) => {
   followerController.createFollow(req, res);
 });
-router.delete("/follow", (req, res) => {
+router.post("/deletefollow", (req, res) => {
   followerController.deleteFollow(req, res);
 });
 router.get("/follow", (req, res) => {

@@ -4,7 +4,7 @@ module.exports = {
   createComment: async (req, res) => {
     const body = req.body;
     let data = await services.createComment(localStorage.getItem("userId"), body.postId,body.content);
-    return res.redirect("../");
+    return res.redirect(`../#${body.postId}`);
   },
   deleteComment: async (req, res) => {
     const body = req.body;

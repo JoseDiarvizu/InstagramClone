@@ -38,3 +38,10 @@ nav li a:hover{
     border-bottom: 1px solid rgba(0,0,0,0.125);
 
 }
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px;
+    padding: 10px;
+  }

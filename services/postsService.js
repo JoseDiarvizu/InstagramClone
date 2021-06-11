@@ -52,7 +52,7 @@ let updatePost = async (postId,postImage) => {
       let pool = await sql.connect(config);
       let results = await pool
       .request()
-      .query(`SELECT * FROM friendsPosts where followerId = ${userId} order by creation_date`);
+      .query(`SELECT * FROM friendsPosts where followerId = ${userId} order by creation_date desc`);
   
       return results;
     } catch (err) {
@@ -65,7 +65,7 @@ let updatePost = async (postId,postImage) => {
       let pool = await sql.connect(config);
       let results = await pool
       .request()
-      .query(`SELECT * FROM userPosts where userid = ${userId} order by creation_date`);
+      .query(`SELECT * FROM userPosts where userid = ${userId} order by creation_date desc`);
       //console.log("results:",results);
       return results;
     } catch (err) {

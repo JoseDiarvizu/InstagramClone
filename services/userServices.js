@@ -22,7 +22,7 @@ let createUser = async (
       .input("email", sql.NVarChar, email)
       .input("biography", sql.NVarChar, biography)
       .input("phone", sql.NVarChar, phone)
-      .input("is_public", sql.Bit, is_public)
+      .input("is_public", sql.Int, is_public)
       .output("error", sql.Int)
       .output("message", sql.NVarChar)
       .execute("AddUser");
@@ -66,7 +66,7 @@ let updateUser = async (
     .input("email", sql.NVarChar, email)
     .input("biography", sql.NVarChar, biography)
     .input("phone", sql.NVarChar, phone)
-    .input("is_public", sql.Bit, is_public)
+    .input("is_public", sql.Int, is_public)
     .output("error", sql.Int)
     .output("message", sql.NVarChar)
     .execute("UpdateUser");

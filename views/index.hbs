@@ -19,6 +19,18 @@
         {{#if user}}
           <li><a href="/profile">Profile</a></li>
           <li><a href="/uploadimage">Upload Image</a></li>
+          <form action="/api/showuser" method="POST">
+            <div class="form-group">
+              <label for="user">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
           <li><a href="/api/login" method="GET">Logout</a></li>
         {{else}}
           <li><a href="/login">Login</a></li>
@@ -27,12 +39,12 @@
       </ul>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container mt-4 center">
       {{#if user}}
-        <h1>Hello, {{user.name}}</h1>
+        <h1 class="center">Hello, {{user.name}}</h1>
         <br />
         {{#each friendsPosts}}
-          <div class="card" style="width: 24rem;">
+          <div id={{this.postId}} class="card center" style="width: 80%;">
             <div class="card-header">
               <h2>{{this.username}}</h2>
             </div>
@@ -89,8 +101,7 @@
                   value={{this.postId}}
                 >Submit</button>
               </form>
-              <br />
-
+              <h4>Comments</h4>
               {{#each comments}}
                 <div class="card" style="width: 16rem;">
                   <div class="card-body">

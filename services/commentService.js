@@ -51,7 +51,7 @@ let getPostComments = async (postId) => {
     let pool = await sql.connect(config);
     let results = await pool
       .request()
-      .query(`SELECT * FROM VComments WHERE postId=${postId}`);
+      .query(`SELECT * FROM VComments WHERE postId=${postId} order by postId asc`);
 
     return results;
   } catch (err) {

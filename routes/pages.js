@@ -8,6 +8,13 @@ router.get("/", loginController.isLoggedIn, (req, res) => {
     friendsPosts: req.friendsPosts,
   });
 });
+router.get("/showResults",loginController.isLoggedIn,(req, res) => {
+  if(req.user){
+    res.render('showResults');
+  } else{
+    res.redirect('/login');
+}
+});
 
 router.get("/register", (req, res) => {
   res.render("register");
@@ -30,6 +37,8 @@ router.get("/profile", loginController.isLoggedIn, (req, res) => {
     res.render("profile", {
       user: req.user,
       posts: req.posts,
+      followed: req.followed,
+      followers: req.followers
     });
   } else {
     res.redirect("/login");
