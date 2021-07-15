@@ -3,11 +3,8 @@ const services = require("../services/commentService");
 module.exports = {
   createComment: async (req, res) => {
     const body = req.body;
-    let data = await services.createComment(body.userId, body.postId,body.content);
-    return res.status(201).json({
-      success: 1,
-      data: data
-    });
+    let data = await services.createComment(localStorage.getItem("userId"), body.postId,body.content);
+    return res.redirect(`../#${body.postId}`);
   },
   deleteComment: async (req, res) => {
     const body = req.body;
